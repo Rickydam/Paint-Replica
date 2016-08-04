@@ -33,7 +33,6 @@ namespace Paint
         private void Form1_Load_1(object sender, EventArgs e)
         {
             currentColor = Color.Black;
-            // currentColorBox.BackColor = currentColor;
         }
 
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
@@ -95,15 +94,75 @@ namespace Paint
             }
         }
 
-        // Function to be executed when the menu item "File > Draw" is clicked
-        private void drawToolStripMenuItem_Click(object sender, EventArgs e)
+        // Actions to be performed when the status label is clicked
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e) {}
+
+        // Clear the drawing the "Edit > Clear" is clicked
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            canvas = new Bitmap(pictureBox2.Width, pictureBox2.Height);
+            pictureBox2.Image = canvas;
+            g = Graphics.FromImage(pictureBox2.Image);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            currentColor = pictureBox1.BackColor;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox3.BackColor;
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox11.BackColor;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {currentColor = pictureBox3.BackColor;
+            currentColor = pictureBox4.BackColor;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox5.BackColor;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox6.BackColor;
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox7.BackColor;
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox8.BackColor;
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox9.BackColor;
+        }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox10.BackColor;
         }
     }
 }
