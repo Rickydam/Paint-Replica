@@ -13,11 +13,12 @@ namespace Paint
 {
     public partial class Form1 : Form
     {
-        public Bitmap canvas;
-        public Graphics g;
-        public Color currentColor;
+        private Bitmap canvas;
+        private Graphics g;
+        private Color currentColor;
         private Point lastPoint = Point.Empty;
         private bool isMouseDown = new Boolean();
+        public Pen p;
         
         // Constructor
         public Form1()
@@ -48,7 +49,15 @@ namespace Paint
             {
                 if (lastPoint != null)
                 {
-                    Pen p = new Pen(currentColor);
+                    p = new Pen(currentColor);
+                    p.StartCap = LineCap.Round;
+                    p.EndCap = LineCap.Round;
+
+                    if (!comboBox1.Text.Equals(""))
+                    {
+                        p.Width = float.Parse(comboBox1.Text);
+                    }
+
                     g.SmoothingMode = SmoothingMode.AntiAlias;
                     g.DrawLine(p, lastPoint, e.Location);
                     lastPoint = e.Location;
@@ -63,12 +72,6 @@ namespace Paint
             lastPoint = e.Location;
             isMouseDown = false;
         }
-
-        // Actions to be performed when the PictureBox is clicked
-        private void pictureBox2_Click(object sender, EventArgs e) {}
-
-        // Actions to be performed when menu strip is clicked
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {}
 
         // Function to be executed when the menu item "File > Open" is clicked
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,64 +108,97 @@ namespace Paint
             g = Graphics.FromImage(pictureBox2.Image);
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e) { }
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e) { }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
-
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             currentColor = pictureBox1.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             currentColor = pictureBox3.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox11_Click(object sender, EventArgs e)
         {
             currentColor = pictureBox11.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox4_Click(object sender, EventArgs e)
-        {currentColor = pictureBox3.BackColor;
+        {
             currentColor = pictureBox4.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             currentColor = pictureBox5.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             currentColor = pictureBox6.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             currentColor = pictureBox7.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             currentColor = pictureBox8.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox9_Click(object sender, EventArgs e)
         {
             currentColor = pictureBox9.BackColor;
+            pictureBox12.BackColor = currentColor;
         }
-
         private void pictureBox10_Click(object sender, EventArgs e)
         {
             currentColor = pictureBox10.BackColor;
+            pictureBox12.BackColor = currentColor;
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            currentColor = pictureBox13.BackColor;
+            pictureBox12.BackColor = currentColor;
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox10_Click_1(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            currentColor = colorDialog1.Color;
+            pictureBox12.BackColor = currentColor;
         }
     }
 }
